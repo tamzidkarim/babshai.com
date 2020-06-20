@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
@@ -26,19 +26,26 @@
     ]
   },
   "dependencies": {
+    "formik": "^2.1.4",
     "next": "latest",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-hook-form": "^5.7.2",
+    "react-icons": "^3.10.0",
+    "react-simple-image-slider": "^1.0.3",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@testing-library/react": "^10.0.1",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.5",
     "@types/react": "^16.9.27",
+    "@types/styled-components": "^5.1.0",
     "@types/testing-library__react": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "babel-jest": "^25.2.3",
+    "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-react": "^7.19.0",
@@ -46,7 +53,9 @@
     "jest": "^25.2.3",
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.0.10",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.2",
+    "tailwindcss": "^1.4.6",
     "typescript": "^3.8.3"
   }
 }
