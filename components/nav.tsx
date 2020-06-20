@@ -4,8 +4,8 @@ import { FcClock, FcAssistant } from 'react-icons/fc';
 
 const links = [
   { href: 'https://nextjs.org/docs', label: 'Cart' },
-  { href: 'http://localhost:3000/login', label: 'Log In' },
-  { href: 'http://localhost:3000/signup', label: 'Sign Up' },
+  { href: '/login', label: 'Log In' },
+  { href: '/signup', label: 'Sign Up' },
 ];
 
 const navlinks = ['Products', 'Suppliers', 'Services', 'Contact', 'About'];
