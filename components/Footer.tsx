@@ -8,7 +8,6 @@ export default function Footer() {
         className="flex justify-center items-center"
       >
         © Babshai.com
-        {/* <img src="/vercel.svg" alt="Babshai Logo" className="h-4 ml-1" /> */}
       </a>
     </footer>
   );

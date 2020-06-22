@@ -1,8 +1,4 @@
 import Head from 'next/head';
-import Nav from '../components/nav';
-import Footer from '../components/footer';
-import Main from '../components/main';
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 // const [class, setClass] = useState(sticky);

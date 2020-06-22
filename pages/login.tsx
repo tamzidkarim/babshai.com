@@ -1,6 +1,5 @@
-import Nav from '../components/nav';
-import Footer from '../components/footer';
 import { useForm } from 'react-hook-form';
+import Layout from '../components/Layout';
 
 const inputStyle =
   'block border border-grey-light w-full p-3 rounded mb-4 focus:outline-none focus:border-red-500';
@@ -10,8 +9,7 @@ export default function Login() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="min-h-screen relative">
-      <Nav />
+    <Layout>
       <div className="bg-grey-lighter py-10 flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
@@ -43,7 +41,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 }
