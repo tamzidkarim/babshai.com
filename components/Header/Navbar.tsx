@@ -10,7 +10,8 @@ const links = [
 const navlinks = ['Products', 'Suppliers', 'Services', 'Contact', 'About'];
 
 export default function Nav() {
-  const sticky = 'fixed w-full transition duration-700 z-10 shadow-lg';
+  const sticky =
+    'fixed w-full transition duration-700 z-10 gradient-black shadow-lg';
   const blackSticky =
     'fixed top-0 w-full transition duration-700 z-10 bg-white shadow-lg';
 
@@ -18,7 +19,7 @@ export default function Nav() {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      const isScrolled = window.scrollY > 100;
+      const isScrolled = window.scrollY > 10;
       if (isScrolled) {
         setcSticky(blackSticky);
       } else {
@@ -42,7 +43,7 @@ export default function Nav() {
               <li key={index}>
                 <a
                   href="#"
-                  className="no-underline text-black hover:text-red-500 "
+                  className="no-underline text-gray-200 hover:text-red-500 "
                 >
                   {link}
                 </a>
