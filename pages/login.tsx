@@ -1,12 +1,15 @@
 import { useForm } from 'react-hook-form';
 import Layout from '../components/Layout';
-// import Background from '../public/loginbg.jpg';
+import { AuthContext } from '../contexts/authContext';
+import { useContext } from 'react';
+import redirect from '../lib/redirect';
 
 const inputStyle =
   'block border border-grey-light w-full p-3 rounded mb-4 focus:outline-none focus:border-red-500';
 
 export default function Login() {
   const { register, handleSubmit, watch, errors } = useForm<any>();
+  const { setAuth, setUser } = useContext(AuthContext);
 
   async function handleLogin(data) {
     const resp = await fetch('http://localhost:1337/auth/local', {
@@ -21,6 +24,12 @@ export default function Login() {
     });
     const json = await resp.json();
     console.log(json);
+
+    if (json.jwt) {
+      setAuth(true);
+      setUser({ name: json.user.username, email: json.user.email });
+      redirect('/');
+    }
   }
 
   return (

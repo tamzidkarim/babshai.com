@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../../contexts/authContext';
 
 const links = [
   { href: '/cart', label: 'Cart' },
@@ -9,7 +10,14 @@ const links = [
 
 const navlinks = ['Products', 'Suppliers', 'Services', 'Contact', 'About'];
 
-export default function Nav() {
+const Navbar: React.FC<any> = (): JSX.Element => {
+  const { isAuthenticated, user } = useContext(AuthContext);
+
+  if (isAuthenticated) {
+    links[1].label = user.name;
+    links[1].href = `/accounts/${user.name}`;
+  }
+
   const sticky =
     'fixed w-full transition duration-700 z-10 gradient-black shadow-lg';
   const blackSticky =
@@ -17,15 +25,27 @@ export default function Nav() {
 
   const [csticky, setcSticky] = useState<any>(sticky);
 
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 10;
+    if (isScrolled) {
+      setcSticky(blackSticky);
+    } else {
+      setcSticky(sticky);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled) {
-        setcSticky(blackSticky);
-      } else {
-        setcSticky(sticky);
-      }
-    });
+    // const abortController = new AbortController();
+    // const signal = abortController.signal;
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      // second, we return an anonymous clean up function
+      // abortController.abort();
+      // console.log('cleaned up');
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
   return (
     <nav className={csticky}>
@@ -63,4 +83,6 @@ export default function Nav() {
       </ul>
     </nav>
   );
-}
+};
+
+export default Navbar;
